@@ -20,7 +20,6 @@ jobs:
         run: |
           nix-update --flake awakened-poe-trade --build
           nix-update --flake exiled-exchange-2 --build
-          nix-update --flake orca-slicer-nightly --build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

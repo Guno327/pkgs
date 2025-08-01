@@ -2,7 +2,7 @@
   pkgs ? import <nixpkgs> {},
   makeDesktopItem,
 }: let
-  version = "2.3.1";
+  version = "2.3.0";
   pname = "orca-slicer-nightly";
 
   src = pkgs.fetchurl {
