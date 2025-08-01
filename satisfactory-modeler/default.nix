@@ -69,6 +69,5 @@ in
       platforms = ["x86_64-linux"];
       description = "Model your Satisfactory builds";
       license = pkgs.lib.licenses.free; # Change if known
-      maintainers = with pkgs.lib.maintainers; [guno327];
     };
   }
