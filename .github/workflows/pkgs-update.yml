@@ -18,9 +18,9 @@ jobs:
 
       - name: Run nix-update
         run: |
-          nix run github:Mic92/nix-update -- --flake awakened-poe-trade --build
-          nix run github:Mic92/nix-update -- --flake exiled-exchange-2 --build
-          nix run github:Mic92/nix-update -- --flake orca-slicer-nightly --build
+          nix-update --flake awakened-poe-trade --build
+          nix-update --flake exiled-exchange-2 --build
+          nix-update --flake orca-slicer-nightly --build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
