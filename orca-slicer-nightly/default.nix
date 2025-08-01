@@ -1,13 +1,14 @@
 {
   pkgs ? import <nixpkgs> {},
   makeDesktopItem,
+  lib,
 }: let
-  version = "2.3.0";
+  version = "2.3.1";
   pname = "orca-slicer-nightly";
 
   src = pkgs.fetchurl {
     url = "https://github.com/SoftFever/OrcaSlicer/releases/download/nightly-builds/OrcaSlicer-Linux-flatpak_V${version}-dev_x86_64.flatpak";
-    sha256 = "sha256-FOzHaRGqI+TPOrFt9NZPgy1u4HCF/dgHuhIlZSMDgqg=";
+    sha256 = "sha256-qq8flUEjPNUt4iWEGQlZ8AFWW6wD+x5t7Ls8wGxi1D0=";
   };
 
   desktopItem = makeDesktopItem {
@@ -48,6 +49,12 @@ in
       EOF
 
       chmod +x $out/bin/orca-slicer-nightly
+    '';
+
+    postFixup = ''
+      wrapProgram $out/bin/orca-slicer-nightly \
+        --prefix PATH : ${lib.makeBinPath [pkgs.flatpak]}
+
     '';
 
     meta = {
