@@ -3,12 +3,12 @@
   makeDesktopItem,
   lib,
 }: let
-  version = "2.3.1";
+  version = "nightly";
   pname = "orca-slicer-nightly";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/SoftFever/OrcaSlicer/releases/download/nightly-builds/OrcaSlicer-Linux-flatpak_V${version}-dev_x86_64.flatpak";
-    sha256 = "sha256-qq8flUEjPNUt4iWEGQlZ8AFWW6wD+x5t7Ls8wGxi1D0=";
+    url = "https://github.com/SoftFever/OrcaSlicer/releases/download/nightly-builds/OrcaSlicer-Linux-flatpak_nightly_x86_64.flatpak";
+    sha256 = "sha256-Fvd0hESkL1GsJFIIKX+QVc7jO54A7hdn6MbP//aGaG8=";
   };
 
   desktopItem = makeDesktopItem {
@@ -28,7 +28,7 @@ in
 
     installPhase = ''
       mkdir -p $out/bin
-      cp $src $out/OrcaSlicer-Linux-flatpak_V${version}-dev_x86_64.flatpak
+      cp $src $out/OrcaSlicer-Linux-flatpak_nightly_x86_64.flatpak
 
       install -m 444 -D ${desktopItem}/share/applications/orca-slicer-nightly.desktop $out/share/applications/orca-slicer-nightly.desktop
 
@@ -42,7 +42,7 @@ in
 
       # Install app if not already installed
       if ! flatpak info io.github.softfever.OrcaSlicer >/dev/null 2>&1; then
-        flatpak install --user --noninteractive $out/OrcaSlicer-Linux-flatpak_V${version}-dev_x86_64.flatpak
+        flatpak install --user --noninteractive $out/OrcaSlicer-Linux-flatpak_nightly_x86_64.flatpak
       fi
 
       exec flatpak run io.github.softfever.OrcaSlicer "\$@"
