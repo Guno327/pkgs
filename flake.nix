@@ -18,6 +18,7 @@
       exiled-exchange-2 = pkgs.callPackage ./exiled-exchange-2 {};
       satisfactory-modeler = pkgs.callPackage ./satisfactory-modeler {};
       orca-slicer-nightly = pkgs.callPackage ./orca-slicer-nightly {};
+      balatro-mobile-maker = pkgs.callPackage ./balatro-mobile-maker {};
     };
   };
 }
