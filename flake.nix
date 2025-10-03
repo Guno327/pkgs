@@ -19,6 +19,7 @@
       satisfactory-modeler = pkgs.callPackage ./satisfactory-modeler {};
       orca-slicer-nightly = pkgs.callPackage ./orca-slicer-nightly {};
       balatro-mobile-maker = pkgs.callPackage ./balatro-mobile-maker {};
+      balatro-multiplayer = pkgs.callPackage ./balatro-multiplayer {};
     };
   };
 }
