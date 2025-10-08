@@ -8,7 +8,7 @@
 
   src = pkgs.fetchurl {
     url = "https://github.com/SoftFever/OrcaSlicer/releases/download/nightly-builds/OrcaSlicer-Linux-flatpak_nightly_x86_64.flatpak";
-    sha256 = "sha256-Fvd0hESkL1GsJFIIKX+QVc7jO54A7hdn6MbP//aGaG8=";
+    sha256 = "sha256-ZrpY7H8JDwM1QjU9lpYawKCvr+f6+Tox194x+XaO9Ig=";
   };
 
   desktopItem = makeDesktopItem {
