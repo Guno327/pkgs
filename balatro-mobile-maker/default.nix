@@ -7,8 +7,8 @@
 
   src = fetchFromGitHub {
     owner = "blake502";
-    repo = "${pname}";
-    rev = "$beta-{version}";
+    repo = "balatro-mobile-maker";
+    rev = "beta-${version}";
     sha256 = "sha256-bV3iDpQ+JoNrKCeimxRL24OePeC1wjxk5I7U636IDvQ=";
   };
 in
