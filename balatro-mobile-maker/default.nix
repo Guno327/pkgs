@@ -3,7 +3,7 @@
   fetchFromGitHub,
   nix-update-script,
 }: let
-  version = "Additional-Tools-1.1";
+  version = "0.8.3";
   pname = "balatro-mobile-maker";
 
   src = fetchFromGitHub {
