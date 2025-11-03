@@ -5,7 +5,7 @@
   makeDesktopItem,
   nix-update-script,
 }: let
-  version = "1.0";
+  version = "1.0.14";
   pname = "balatro-multiplayer";
 
   src = fetchurl {

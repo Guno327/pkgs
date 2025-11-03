@@ -1,8 +1,9 @@
 {
   pkgs ? import <nixpkgs> {},
   fetchFromGitHub,
+  nix-update-script,
 }: let
-  version = "0.8.3";
+  version = "Additional-Tools-1.1";
   pname = "balatro-mobile-maker";
 
   src = fetchFromGitHub {
@@ -15,4 +16,5 @@ in
   pkgs.buildDotnetModule {
     inherit pname version src;
     projectFile = "balatro-mobile-maker/balatro-mobile-maker.csproj";
+    passthru.updateScript = nix-update-script {};
   }
