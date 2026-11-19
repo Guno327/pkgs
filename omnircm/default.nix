@@ -59,6 +59,7 @@ buildFHSEnv {
   targetPkgs =
     pkgs: with pkgs; [
       icu
+      libusb1
       openssl
       zlib
       krb5
