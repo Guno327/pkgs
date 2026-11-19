@@ -4,12 +4,12 @@
   lib,
   nix-update-script,
 }: let
-  version = "2.3.2";
+  version = "2.5.1";
   pname = "orca-slicer-nightly";
 
   src = pkgs.fetchurl {
     url = "https://github.com/SoftFever/OrcaSlicer/releases/download/nightly-builds/OrcaSlicer-Linux-flatpak_nightly_x86_64.flatpak";
-    sha256 = "sha256-WLc3mqKNJYGIbr+RCakY22P1f6R5vF9D2RJkyoBwUmM=";
+    sha256 = "sha256-LJW7F9eaHwMI1m0A1v0DePffBK8gxuXdSY+Re7wN97A=";
   };
 
   desktopItem = makeDesktopItem {

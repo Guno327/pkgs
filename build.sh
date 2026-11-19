@@ -1,8 +1,4 @@
-#! /usr/bin/env bash
-nix build .#awakened-poe-trade
-nix build .#exiled-exchange-2
-nix build .#balatro-mobile-maker
-nix build .#balatro-multiplayer
-nix build .#orca-slicer-nightly
-nix build .#satisfactory-modeler
-nix build .btd700ctl
+#! /usr/bin/env -S nix shell nixpkgs#jq --command sh
+set -e
+nix eval --json .#packages.x86_64-linux --apply builtins.attrNames \
+| jq -r '.[] | ".#\(.)"' | xargs nix build --no-link

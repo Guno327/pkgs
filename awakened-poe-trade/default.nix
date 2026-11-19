@@ -4,13 +4,14 @@
   fetchurl,
   makeDesktopItem,
   nix-update-script,
-}: let
-  version = "3.28.103";
+}:
+let
+  version = "3.30.102";
   pname = "awakened-poe-trade";
 
   src = fetchurl {
     url = "https://github.com/SnosMe/awakened-poe-trade/releases/download/v${version}/Awakened-PoE-Trade-${version}.AppImage";
-    sha256 = "sha256-p/XDWnE9lm/LwT3r/lhQWtEJ3YoaGRFd4Rv7RbdDIeg=";
+    sha256 = "sha256-h/hTWuuvFvHX+lvFSWc8rAd5Eeylp3eZBDzWkWu7zGM=";
   };
 
   appimageContents = appimageTools.extract {
@@ -26,22 +27,22 @@
     desktopName = "Awakened PoE Trade";
   };
 in
-  appimageTools.wrapType2 {
-    inherit pname version src;
-    extraInstallCommands = ''
-      install -m 444 -D ${desktopItem}/share/applications/awakened-poe-trade.desktop $out/share/applications/awakened-poe-trade.desktop
-      install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/512x512/apps/awakened-poe-trade.png \
-         $out/share/icons/hicolor/512x512/apps/awakened-poe-trade.png
-    '';
+appimageTools.wrapType2 {
+  inherit pname version src;
+  extraInstallCommands = ''
+    install -m 444 -D ${desktopItem}/share/applications/awakened-poe-trade.desktop $out/share/applications/awakened-poe-trade.desktop
+    install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/512x512/apps/awakened-poe-trade.png \
+       $out/share/icons/hicolor/512x512/apps/awakened-poe-trade.png
+  '';
 
-    passthru.updateScript = nix-update-script {};
+  passthru.updateScript = nix-update-script { };
 
-    meta = {
-      description = "Path of Exile overlay program for price checking items, among many other loved features.";
-      homepage = "https://github.com/SnosMe/awakened-poe-trade";
-      downloadPage = "https://github.com/SnosMe/awakened-poe-trade/releases";
-      license = lib.licenses.mit;
-      sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
-      platforms = ["x86_64-linux"];
-    };
-  }
+  meta = {
+    description = "Path of Exile overlay program for price checking items, among many other loved features.";
+    homepage = "https://github.com/SnosMe/awakened-poe-trade";
+    downloadPage = "https://github.com/SnosMe/awakened-poe-trade/releases";
+    license = lib.licenses.mit;
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    platforms = [ "x86_64-linux" ];
+  };
+}

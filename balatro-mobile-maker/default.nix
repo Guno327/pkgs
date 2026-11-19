@@ -1,8 +1,9 @@
 {
-  pkgs ? import <nixpkgs> {},
+  pkgs ? import <nixpkgs> { },
   fetchFromGitHub,
   nix-update-script,
-}: let
+}:
+let
   version = "0.8.3";
   pname = "balatro-mobile-maker";
 
@@ -13,8 +14,13 @@
     sha256 = "sha256-bV3iDpQ+JoNrKCeimxRL24OePeC1wjxk5I7U636IDvQ=";
   };
 in
-  pkgs.buildDotnetModule {
-    inherit pname version src;
-    projectFile = "balatro-mobile-maker/balatro-mobile-maker.csproj";
-    passthru.updateScript = nix-update-script {};
-  }
+pkgs.buildDotnetModule {
+  inherit pname version src;
+  projectFile = "balatro-mobile-maker/balatro-mobile-maker.csproj";
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version-regex"
+      "^beta-([0-9.]+)$"
+    ];
+  };
+}
